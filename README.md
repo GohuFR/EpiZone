@@ -204,18 +204,6 @@ Les codes INSEE suivent le standard COG (Code Officiel Géographique) de l'INSEE
 - **Préfixe `2A` ou `2B`** pour la Corse (ex : `2A001`, `2B001`)
 - Les arrondissements de Paris, Lyon et Marseille utilisent leurs codes spécifiques (ex : `75056` pour Paris)
 
-
-
-L'application est conçue pour être déployée avec **Gunicorn** derrière un reverse proxy (Nginx, Cloudflare…).
-
-```bash
-gunicorn app:server -w 2 -b 0.0.0.0:8050 --timeout 120
-```
-
-Vérifier que `app.py` expose bien `server = app.server` (attribut standard Dash).
-
----
-
 ## Développement
 
 Pour activer le mode développement (auto-reload, debug) :
