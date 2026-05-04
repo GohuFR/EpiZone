@@ -1,0 +1,46 @@
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Cache généré automatiquement
+cache/communes_geo_*.parquet
+cache/geojson_*.gz
+cache/geojson_*.md5
+cache/periodes_*.parquet
+cache/periodes_*.md5
+
+# Données clean générées automatiquement
+data/clean/
+
+# Uploads temporaires
+uploads/
+
+# Fichiers doublons / config locale
+epizone.ico
+
+# Environnements virtuels
+venv/
+.venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Variables d'environnement
+.env
+.env.local
+
+# Logs
+*.log

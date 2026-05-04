@@ -1,0 +1,57 @@
+# ===========================================================================
+#  EpiZone — Configuration maladie
+#  FCO BTV-1 (Fievre Catarrhale Ovine, serotype 1)
+# ===========================================================================
+#
+#  Apparition : Le 15/11/2007 dans le Sud-Ouest.
+#  Statut indemne obtenu 14/12/2012.
+#
+# ===========================================================================
+
+
+id: btv1
+name: "FCO BTV-1"
+subtitle: "Zone D (sérotype 1) et Zone E (sérotypes 1 et 8) (15/11/2007 au 14/12/2012)"
+description: >
+  Apparition du sérotype 1 en 2007, en parallèle du BTV-8. 
+  Deux types de zones : ZD (sérotype 1) et ZE (sérotypes 1 et 8).
+
+accent_color: "#E65100"
+
+excel_file: "btv1_periodes.xlsx"
+
+zones:
+  - id: ZD
+    label: "Zone D"
+    color: "#7F1734"
+    priority: 1
+  - id: ZE
+    label: "Zone E"
+    color: "#E35335"
+    priority: 2
+
+sheets:
+  - sheet_name: "Periodes"
+    zone_id: ~
+    zone_column: "zone"
+    columns:
+      commune: "commune"
+      code_insee: "code_insee"
+      departement: "departement"
+      region: "region"
+      date_debut: "date_debut"
+      date_fin: "date_fin"
+
+dept_expansion:
+  enabled: false
+
+derived_zones: []
+combo_zones: []
+
+map:
+  center: [46.5, 2.5]
+  zoom: 6
+
+regulatory:
+  arrete: "Arreté modifiant l'arreté du 21 mars 2001"
+  note: ""

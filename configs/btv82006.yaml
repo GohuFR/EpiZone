@@ -1,0 +1,33 @@
+id: btv82006
+name: "FCO BTV-8 (2006)"
+subtitle: ''
+description: ''
+accent_color: '#E65100'
+excel_file: ZR_BTV8_2006.xlsx
+zones:
+- id: ZB
+  label: ZB
+  color: '#D32F2F'
+  priority: 1
+sheets:
+- sheet_name: "ZB"
+  columns:
+    code_insee: "Code INSEE"
+    date_debut: "Date de debut"
+    date_fin: "Date de fin"
+    commune: "Commune"
+    departement: "Departement"
+    region: "Region"
+  zone_id: "ZB"
+dept_expansion:
+  enabled: false
+derived_zones: []
+combo_zones: []
+map:
+  center:
+  - 46.5
+  - 2.5
+  zoom: 6
+regulatory:
+  arrete: ''
+  note: ''

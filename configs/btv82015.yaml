@@ -1,0 +1,64 @@
+# ===========================================================================
+#  EpiZone — Configuration maladie
+#  FCO BTV-8 (Fievre Catarrhale Ovine, serotype 8)
+# ===========================================================================
+#
+#  Contexte : resurgence 2015 du BTV-8. D'abord gere avec ZP (100 km)
+#  et ZS (150 km), puis unifie en ZR unique le 15/10/2015.
+#  Levee du zonage le 28/12/2017.
+#
+# ===========================================================================
+
+id: btv82015
+name: "FCO BTV-8 (2015)"
+subtitle: "Zones ZP / ZS / ZR (17/09/2015 – 28/12/2017)"
+description: >
+  Resurgence du BTV-8 en 2015. Trois types de zones successifs :
+  ZP et ZS (sept-oct 2015), puis ZR unifiee jusqu'a fin 2017.
+
+accent_color: "#1565C0"
+
+excel_file: "btv82015_periodes.xlsx"
+
+zones:
+  - id: ZP
+    label: "Zone de protection"
+    description: "~100 km autour des foyers"
+    color: "#C62828"
+    priority: 1
+  - id: ZS
+    label: "Zone de surveillance"
+    description: "~150 km autour des foyers"
+    color: "#E65100"
+    priority: 2
+  - id: ZR
+    label: "Zone reglementee"
+    description: "ZP+ZS reunies (post oct. 2015)"
+    color: "#F9A825"
+    priority: 3
+
+sheets:
+  - sheet_name: "Periodes"
+    zone_id: ~
+    zone_column: "zone"
+    columns:
+      commune: "commune"
+      code_insee: "code_insee"
+      departement: "departement"
+      region: "region"
+      date_debut: "date_debut"
+      date_fin: "date_fin"
+
+dept_expansion:
+  enabled: false
+
+derived_zones: []
+combo_zones: []
+
+map:
+  center: [47.0, 2.5]
+  zoom: 6
+
+regulatory:
+  arrete: "Arrete du 14 septembre 2015 modifie"
+  note: "ZP/ZS en vigueur jusqu'au 15/10/2015, puis ZR unique. Passage en statut enzootique à partir du 28/12/2017."

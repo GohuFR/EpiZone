@@ -1,0 +1,64 @@
+# ===========================================================================
+#  EpiZone — Configuration maladie
+#  MHE (Maladie Hemorragique Epizootique)
+# ===========================================================================
+#
+#  Nouveau format de donnees : un seul onglet "Periodes" avec une colonne
+#  "zone" discriminante (ZR ou ZV), colonnes en snake_case.
+#
+# ===========================================================================
+
+id: mhe
+name: "MHE"
+subtitle: "Zones regulees et vaccinales"
+description: >
+  Maladie hemorragique epizootique. Deux types de zones : zone regulee (ZR)
+  et zone vaccinale (ZV), avec possibilite de cumul.
+
+accent_color: "#e94560"
+
+excel_file: "mhe_periodes.xlsx"
+
+zones:
+  - id: ZR
+    label: "Zone regulee"
+    color: "#D32F2F"
+    priority: 1
+  - id: ZV
+    label: "Zone vaccinale"
+    color: "#1976D2"
+    priority: 2
+  - id: "ZR+ZV"
+    label: "Zone regulee + vaccinale"
+    color: "#8E24AA"
+    priority: 0  # Affichee prioritairement (cumul = plus restrictif)
+
+sheets:
+  - sheet_name: "Periodes"
+    zone_id: ~                  # Pas de zone fixe : lue depuis la colonne "zone"
+    zone_column: "zone"         # Colonne discriminante : valeurs ZR ou ZV
+    columns:
+      commune: "commune"
+      code_insee: "code_insee"
+      departement: "departement"
+      region: "region"
+      date_debut: "date_debut"
+      date_fin: "date_fin"
+
+dept_expansion:
+  enabled: false
+
+derived_zones: []
+
+# Quand une commune est simultanement en ZR et ZV, afficher ZR+ZV
+combo_zones:
+  - id: "ZR+ZV"
+    requires: ["ZR", "ZV"]
+
+map:
+  center: [46.5, 2.5]
+  zoom: 6
+
+regulatory:
+  arrete: "Arretes relatifs a la MHE"
+  note: "Zones ZR et ZV, avec cumul possible."

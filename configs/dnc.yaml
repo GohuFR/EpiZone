@@ -1,0 +1,75 @@
+# ===========================================================================
+#  EpiZone — Configuration maladie
+#  DNC (Dermatose Nodulaire Contagieuse)
+# ===========================================================================
+#
+#  Contexte : crise DNC bovine avec cycle de vie des zones :
+#    Foyer -> ZP -> ZS -> ZVII (apres levee ZS)
+#  Zones vaccinales preventives (ZVI) pour les departements a risque.
+#
+#  PARTICULARITE : les zones ZVII et ZVI ne sont pas dans des onglets
+#  dedies. Elles sont DEDUITES de l'onglet ZS :
+#    - ZVII : lignes avec "Raison de fin" == "ZS -> ZV"
+#             (date_debut de la ZVII = date_fin de la ZS)
+#    - ZVI  : lignes avec "Raison" == "ZVI"
+#             (si raison_fin == "ZVI" -> date_fin = null, sinon gardee)
+#
+# ===========================================================================
+
+id: dnc
+name: "DNC"
+subtitle: "Zones ZP, ZS, ZVI, ZVII"
+description: >
+  Dermatose nodulaire contagieuse. Quatre types de zones : protection (ZP),
+  surveillance (ZS), vaccinale II (ZVII, suite foyer), vaccinale I (ZVI, preventive).
+
+accent_color: "#e94560"
+
+excel_file: "dnc_periodes.xlsx"
+
+zones:
+  - id: ZP
+    label: "Zone de protection"
+    description: "~20 km autour du foyer"
+    color: "#D32F2F"
+    priority: 1
+  - id: ZS
+    label: "Zone de surveillance"
+    description: "~50 km autour du foyer"
+    color: "#4CAF50"
+    priority: 2
+  - id: ZVII
+    label: "Zone vaccinale II"
+    description: "Suite foyer (ex-ZS)"
+    color: "#1976D2"
+    priority: 3
+  - id: ZVI
+    label: "Zone vaccinale I"
+    description: "Preventive (dept. a risque)"
+    color: "#64B5F6"
+    priority: 4
+
+sheets:
+  - sheet_name: "Periodes"
+    zone_id: ~
+    zone_column: "zone"
+    columns:
+      commune: "commune"
+      code_insee: "code_insee"
+      departement: "departement"
+      region: "region"
+      date_debut: "date_debut"
+      date_fin: "date_fin"
+
+dept_expansion:
+  enabled: false
+
+combo_zones: []
+
+map:
+  center: [45.9, 5.8]
+  zoom: 5
+
+regulatory:
+  arrete: "Arretes prefectoraux relatifs a la DNC"
+  note: "Cycle : foyer → ZP → ZS → ZVII. ZVI = preventive."

@@ -1,0 +1,61 @@
+# ===========================================================================
+#  EpiZone — Configuration maladie
+#  FCO BTV-4 (Fievre Catarrhale Ovine, serotype 4)
+# ===========================================================================
+#
+#  Contexte : zonage a l'echelle departementale uniquement.
+#  Trois types de zones avec noms complets en francais dans l'Excel.
+#
+# ===========================================================================
+
+id: btv4
+name: "FCO BTV-4"
+subtitle: "Zones departementales (16/11/2017 – 01/01/2018)"
+description: >
+  Gestion du BTV-4 par departements entiers. Zones de protection,
+  de surveillance et reglementee, levee lors du reclassement 
+  en serotype enzootique le 01/01/2018.
+
+accent_color: "#6A1B9A"
+
+excel_file: "btv4_periodes.xlsx"
+
+zones:
+  - id: ZP
+    label: "Zone de protection"
+    color: "#C62828"
+    priority: 1
+  - id: ZS
+    label: "Zone de surveillance"
+    color: "#E65100"
+    priority: 2
+  - id: ZR
+    label: "Zone reglementee"
+    color: "#F9A825"
+    priority: 3
+
+sheets:
+  - sheet_name: "Periodes"
+    zone_id: ~
+    zone_column: "zone"
+    columns:
+      commune: "commune"
+      code_insee: "code_insee"
+      departement: "departement"
+      region: "region"
+      date_debut: "date_debut"
+      date_fin: "date_fin"
+
+dept_expansion:
+  enabled: false
+
+derived_zones: []
+combo_zones: []
+
+map:
+  center: [46.5, 2.5]
+  zoom: 6
+
+regulatory:
+  arrete: "Arrete du 7 novembre 2017 relatif au BTV-4"
+  note: "Zonage departemental."

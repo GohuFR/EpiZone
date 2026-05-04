@@ -1,0 +1,55 @@
+# ===========================================================================
+#  EpiZone — Configuration maladie
+#  FCO BTV-3 (Fievre Catarrhale Ovine, serotype 3)
+# ===========================================================================
+#
+#  Contexte : serotype exotique a son arrivee en France (aout 2024),
+#  reclasse enzootique le 16/02/2025 (arrete du 12/02/2025).
+#  Zone unique de 150 km autour des foyers.
+#
+# ===========================================================================
+
+id: btv3
+name: "FCO BTV-3"
+subtitle: "Zone regulee (02/08/2024 – 16/02/2025)"
+description: >
+  Emergence du BTV-3 en France. Zone regulee de 150 km autour des foyers,
+  levee lors du reclassement en serotype enzootique.
+
+accent_color: "#E65100"
+
+excel_file: "btv3_periodes.xlsx"
+
+zones:
+  - id: ZR
+    label: "Zone regulee"
+    description: "150 km autour des foyers"
+    color: "#E65100"
+    priority: 1
+
+sheets:
+  - sheet_name: "Periodes"
+    zone_id: ~
+    zone_column: "zone"
+    columns:
+      commune: "commune"
+      code_insee: "code_insee"
+      departement: "departement"
+      region: "region"
+      date_debut: "date_debut"
+      date_fin: "date_fin"
+
+dept_expansion:
+  enabled: false
+
+combo_zones: []
+
+derived_zones: []
+
+map:
+  center: [47.5, 2.5]
+  zoom: 6
+
+regulatory:
+  arrete: "Arrete du 4 juillet 2024 modifie"
+  note: "BTV-3 : exotique → enzootique le 16/02/2025"
